@@ -13,8 +13,8 @@ function Wallet({
   async function onChange(evt) {
     const privateKey = evt.target.value;
     setPrivateKey(privateKey);
-    const address = toHex(secp.secp256k1.getPublicKey(privateKey));
-    setAddress(address);
+    const address = secp.secp256k1.getPublicKey(privateKey);
+    setAddress(toHex(address));
     if (address) {
       const {
         data: { balance },
